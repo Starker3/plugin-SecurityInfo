@@ -10,9 +10,9 @@ permissions:
   checks: none
   contents: read
   deployments: none
-  issues: write
+  issues: read
   packages: none
-  pull-requests: write
+  pull-requests: read
   repository-projects: none
   security-events: none
   statuses: none
@@ -25,7 +25,7 @@ jobs:
   PluginTests:
     runs-on: ubuntu-20.04
     env:
-      TARGET_BRANCH: github-aciton
+      TARGET_BRANCH: github-aciton-v2
       PLUGIN: SecurityInfo
     services:
       redis:
@@ -37,8 +37,8 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-      mariadb:
-        image: mariadb:latest
+      mysql:
+        image: mysql:5.7
         ports:
           - 3306:3306
         env:
