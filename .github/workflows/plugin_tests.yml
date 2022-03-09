@@ -50,8 +50,8 @@ jobs:
       - name: run tests
         uses: matomo-org/github-action-tests@v1
         with:
+          plugin-name: 'SecurityInfo'
           php-version: '7.4'
-          is-plugin: true
           test-type: 'UI'
 
 
