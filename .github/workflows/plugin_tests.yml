@@ -48,7 +48,7 @@ jobs:
 
     steps:
       - name: run tests
-        uses: matomo-org/github-action-tests
+        uses: matomo-org/github-action-tests@v1
         with:
           php-version: '7.4'
           is-plugin: true
