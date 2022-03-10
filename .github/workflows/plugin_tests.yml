@@ -50,8 +50,6 @@ jobs:
       - name: run tests
         uses: matomo-org/github-action-tests@v1
         with:
-          git-head: ${{ github.head_ref }}
-          git-sha: ${{ github.event.pull_request.head.sha }}
           plugin-name: 'SecurityInfo'
           php-version: '7.4'
           test-type: 'UI'
