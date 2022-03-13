@@ -55,5 +55,6 @@ jobs:
           plugin-name: 'SecurityInfo'
           php-version: '7.4'
           test-type: 'UI'
+          database-adapter: 'PDO_MYSQL'
 
 
