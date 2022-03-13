@@ -21,12 +21,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-
   PluginTests:
     runs-on: ubuntu-20.04
-    env:
-      TARGET_BRANCH: github-aciton-v2
-      PLUGIN: SecurityInfo
     services:
       redis:
         image: redis:5.0
@@ -45,7 +41,6 @@ jobs:
           MYSQL_DATABASE: matomo_tests
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
         options: --tmpfs /var/lib/mysql:rw
-
     steps:
       - name: run tests
         uses: matomo-org/github-action-tests@v1
@@ -55,6 +50,5 @@ jobs:
           plugin-name: 'SecurityInfo'
           php-version: '7.4'
           test-type: 'UI'
-          database-adapter: 'PDO_MYSQL'
 
 
