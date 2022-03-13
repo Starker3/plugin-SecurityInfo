@@ -36,6 +36,7 @@ jobs:
         include:
           - type: UI
             php-versions: '7.4'
+
     steps:
       - name: run tests
         uses: matomo-org/github-action-tests@v1
