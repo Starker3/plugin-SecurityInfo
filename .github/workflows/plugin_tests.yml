@@ -30,6 +30,13 @@ jobs:
           MYSQL_DATABASE: matomo_tests
           MYSQL_ALLOW_EMPTY_PASSWORD: yes
         options: --tmpfs /var/lib/mysql:rw
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - type: UI
+            php-versions: '7.4'
+
     steps:
       - name: run tests
         uses: matomo-org/github-action-tests@v1
@@ -37,7 +44,7 @@ jobs:
           git-head: ${{ github.head_ref }}
           git-sha: ${{ github.event.pull_request.head.sha }}
           plugin-name: 'SecurityInfo'
-          php-version: '7.4'
-          test-type: 'UI'
+          php-version: ${{ matrix.php-versions }}
+          test-type: ${{ matrix.type }}
 
 
